@@ -1,19 +1,15 @@
-# community
+# 描述
+这是一个有关Vue项目初始化及其目录结构划分的项目,可以直接clone到本地进行开发
+(对于目录划分不想每次都再来一遍的同学非常友好)
+该目录结构应该是比较规范的,如有问题,请大家指正
 
-## Project setup
-```
-npm install
-```
+## 开发注意事项
+1. 记得删除.git文件,以免无法和自己的库连接
+2. .editorconfig文件如果不需要请删除
+3. 里面的四个css规范化,是非常友好的,而且引用顺序也是我排好的,不建议修改
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 注意
+a.txt文件是为了能上传到github才创建的,里面是介绍文件夹应该放什么东西
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 缺陷
+字体暂时只有一个科技字体,望大家积极补充
