@@ -1,0 +1,13 @@
+1.把字体文件放入font ---> 引入
+
+2.在css中定义  ---> 声名
+@font-face {
+     font-family:electronicFont;
+     src: url(路径);
+}
+
+3.使用
+.XXX{
+   font-family:electronicFont;
+}
+

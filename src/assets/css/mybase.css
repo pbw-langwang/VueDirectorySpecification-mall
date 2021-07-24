@@ -1,0 +1,116 @@
+/*css里面不能省略引入node_modules里面的文件*/
+/*@import "./normalize.css";   这个是vue里面打包使用*/
+
+/* 获取根元素，就是html */
+:root{
+  --color-text:#333;
+  --color-high-text:#ff5777;
+  --color-tint:#ff8198;
+  --color-background:#fff;
+  --font-size:14px;
+  --line-height:1.5;
+}
+
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--color-background);
+  color: var(--color-text);
+  width: 100vw;
+}
+
+a{
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
+.clear-fix::after{
+  clear: both;
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.clear-fix{
+  zoom: 1;
+}
+
+.leftF{
+  float: left;
+}
+
+.rightF{
+  float: right;
+}
+
+.flex-row-spaceAround{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex-row-spaceBetween{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex-column-spaceAround{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex-column-spaceBetween{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex1{
+  flex: 1;
+}
+.flex2{
+  flex: 2;
+}
+.flex3{
+  flex: 3;
+}
+.flex4{
+  flex: 4;
+}
+.flex5{
+  flex: 5;
+}
+.flex6{
+  flex: 6;
+}
+
+.ellipsis1{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* 代表三行后超出隐藏加省略，常用为1 */
+  -webkit-box-orient: vertical;
+  word-break: break-all; /* 追加这一行代码 */
+}
