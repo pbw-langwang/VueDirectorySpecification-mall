@@ -14,4 +14,24 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+
+  <!-- public不能直接引用src里面的东西,因为public不会被打包 -->
+  <script>
+    /*动态改变根元素字体大小*/
+    function recalc() {
+        var clientWidth = document.documentElement.clientWidth;
+        if(!clientWidth) return;
+        document.documentElement.style.fontSize = 10 * (clientWidth / 640) + 'px';
+    }
+    
+    function initRecalc() {
+        recalc();
+        var resizeEvt = 'osrientationchange' in window ? 'orientationchange' : 'resize';
+        if(!document.addEventListener) return;
+        window.addEventListener(resizeEvt, recalc, false);
+        document.addEventListener('DOMContentLoaded', recalc, false);
+    }
+    
+    initRecalc();
+  </script>
 </html>

@@ -1,14 +1,18 @@
-/*css里面不能省略引入node_modules里面的文件*/
-/*@import "./normalize.css";   这个是vue里面打包使用*/
+/* css里面不能省略引入node_modules里面的文件 */
+/* @import "./normalize.css";这个是vue里面打包使用 */
+
+@import "./csdn.css";
+@import "./H-ui.reset.css";
+@import "./normalize.css";
 
 /* 获取根元素，就是html */
 :root{
-  --color-text:#333;
+  /* 定义变量 */
+  --color-text:#333;  
   --color-high-text:#ff5777;
-  --color-tint:#ff8198;
   --color-background:#fff;
   --font-size:14px;
-  --line-height:1.5;
+  --line-height: 1.15;
 }
 
 *,
@@ -29,7 +33,6 @@ body{
 }
 
 a{
-  color: var(--color-text);
   text-decoration: none;
 }
 
@@ -37,6 +40,7 @@ li{
   list-style: none;
 }
 
+/* 清除浮动 */
 .clear-fix::after{
   clear: both;
   content: "";
