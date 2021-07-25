@@ -23,7 +23,8 @@
     function recalc() {
         var clientWidth = document.documentElement.clientWidth;
         if(!clientWidth) return;
-        document.documentElement.style.fontSize = 5 * (clientWidth / 640) + 'px';
+        // document.documentElement.style.fontSize = 5 * (clientWidth / 640) + 'px';
+        document.documentElement.style.fontSize = 14 * (clientWidth / 320) + 'px';
     }
     
     function initRecalc() {
