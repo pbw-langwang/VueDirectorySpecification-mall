@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- <%= BASE_URL %>获取当前文件的路径 --- JSP语法,其实打包(npm run build)后是不存在的 -->
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <!-- 获取创建vue项目时你的命名 -->
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -21,7 +23,7 @@
     function recalc() {
         var clientWidth = document.documentElement.clientWidth;
         if(!clientWidth) return;
-        document.documentElement.style.fontSize = 10 * (clientWidth / 640) + 'px';
+        document.documentElement.style.fontSize = 5 * (clientWidth / 640) + 'px';
     }
     
     function initRecalc() {
