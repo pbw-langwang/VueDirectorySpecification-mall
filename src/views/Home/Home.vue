@@ -7,6 +7,15 @@
       </div>
       <div slot="right"></div>
     </nav-bar>
+
+    <swiper>
+      <swiper-item v-for="(item,index) in banners" :key="index">
+        <a :href="item.link">
+          <img :src="item.image">
+        </a>
+      </swiper-item>
+    </swiper>
+
     <p style="font-size:21px">首页</p>
     <p style="font-size:2rem">首页</p>
   </div>
@@ -15,6 +24,7 @@
 <script>
   import NavBar from "components/common/navbar/NavBar.vue"
   import {getHomeMultidata} from "network/home.js"
+  import {Swiper,SwiperItem} from 'components/common/swiper/index.js'
 
   export default {
     name:"Home",
@@ -25,7 +35,9 @@
       }
     },
     components:{
-      NavBar
+      NavBar,
+      Swiper,
+      SwiperItem
     },
     created(){
       getHomeMultidata().then(res=>{
