@@ -110,3 +110,27 @@ export function request(config){
 //   });
 //   return instance.all(config);
 // }
+
+
+
+
+//后面接口换了的
+export function request5(config){
+  const instance = axios.create({
+    baseURL:"http://152.136.185.210:7878/api/m5/",
+    Timeout:3000,
+  });
+  instance.interceptors.request.use(conF=>{
+    console.log(conF);
+    return conF;
+  },err=>{
+    console.log(err);
+  });
+  instance.interceptors.response.use(res=>{
+    console.log(res);
+    return res.data;
+  },err=>{
+    console.log(err);
+  });
+  return instance(config);
+} 
