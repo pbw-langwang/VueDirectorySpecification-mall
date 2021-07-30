@@ -27,5 +27,5 @@ a.txt文件是为了能上传到github才创建的,里面是介绍文件夹应�
 ## 缺陷
 1. 字体暂时只有一个科技字体,望大家积极补充
 2. 样式对于ul li ol的支持接近于零,但是一般也用不到原本样式的列表,如果对于html css感觉不太会修改的,可以看我的博客:https://blog.csdn.net/langwang_100/category_10206316.html
-3. 这个暂时没有分页加载的功能, devPhone5会添加还有使用batter-scroll
+3. 老师视频:https://www.bilibili.com/video/BV15741177Eh?p=168&spm_id_from=pageDriver
 
