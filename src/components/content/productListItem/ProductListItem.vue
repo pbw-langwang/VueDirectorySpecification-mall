@@ -4,6 +4,7 @@
     <div class="content">
       <p class="title ellipsis1">{{productlistitem.title}}</p>
       <span class="price">{{productlistitem.price}}</span>
+      <img src="~assets/img/home/collect.svg">
       <span class="collect">{{productlistitem.cfav}}</span>
     </div>
   </div>
@@ -32,6 +33,11 @@ export default {
     margin: 0 auto;
     width: 90%;
     text-align: center;
+  }
+  .content img{
+    width: 1rem;
+    height: 1rem;
+    vertical-align: text-top;
   }
   .price{
     margin-right: 20px;
