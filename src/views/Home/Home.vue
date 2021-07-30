@@ -8,16 +8,19 @@
       <div slot="right"></div>
     </nav-bar>
 
-    <hmoe-swiper :banner="banners"></hmoe-swiper>
+    <scroll class="content1">
+      <hmoe-swiper :banner="banners"></hmoe-swiper>
     
-    <recommend-view :recommend="recommends"/>
+      <recommend-view :recommend="recommends"/>
 
-    <img style="width:100%" src="~assets/img/home/recommend_bg.jpg">
+      <img style="width:100%" src="~assets/img/home/recommend_bg.jpg">
 
-    <tab-control class="home-tabcontrol" :title="['流行','推荐','精选']" 
-    activeColor="blue" @tabClick="tabClick"/>
+      <tab-control class="home-tabcontrol" :title="['流行','推荐','精选']" 
+      activeColor="blue" @tabClick="tabClick"/>
 
-    <product-list :productList="goods[currentType].list"/>
+      <product-list :productList="goods[currentType].list"/>
+    </scroll>
+
   </div>
 </template>
 
@@ -25,6 +28,7 @@
   import NavBar from "components/common/navbar/NavBar.vue"
   import TabControl from 'components/common/tabControl/TabControl.vue'
   import ProductList from 'components/common/productList/ProductList.vue'
+  import Scroll from 'components/common/scroll/Scroll.vue'
 
   import HmoeSwiper from './components/HmoeSwiper.vue'
   import RecommendView from './components/RecommendView.vue'
@@ -58,6 +62,7 @@
       NavBar,
       TabControl,
       ProductList,
+      Scroll,
 
       HmoeSwiper,
       RecommendView,
@@ -113,8 +118,11 @@
 </script>
 
 <style scoped>
+  /* scoped中的样式确实是有作用域,但是类似于.content img{},这样的样式,
+  会对其它界面产生影响,所以最好都用class表示 */
   #home{
-    padding-top: 44px;
+    height: 100vh;
+    position: relative;
   }
   .home-nav{
     background-color: var(--color-tint);
@@ -131,5 +139,14 @@
     top: 43px;
     left: 0;
     right: 0;
+  }
+  .content1{
+    /* 上下区域高度确定,中间的高度可以用定位或者css的calc函数 */
+    position: absolute;
+    top: 44px;
+    bottom: 49px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
   }
 </style>

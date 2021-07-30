@@ -1,6 +1,25 @@
-<template>
-  <div class="wrapper">
-    <ul class="content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../../node_modules/@better-scroll/core/dist/core.js"></script>
+  <script src="../../../node_modules/@better-scroll/pull-up/dist/pull-up.js"></script>
+  <style>
+    .content{
+      height: 200px;
+      background-color: red;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="aaa()">按钮</button>
+  <div class="content">
+    <ul>
+      <button onclick="aaa()">按钮</button>
       <li>aaa1</li>
       <li>aaa2</li>
       <li>aaa3</li>
@@ -103,54 +122,31 @@
       <li>aaa100</li>
     </ul>
   </div>
-</template>
-
+</body>
 <script>
-  import BScroll from '@better-scroll/core'
-  import Pullup from '@better-scroll/pull-up'
+  //batter-scroll把其它的搞成了插键,只能这样使用
+  BScroll.use(PullUp);
+  // 1.默认情况下batter-scroll无法实时监听滚动位置,需要加上参数
+  // 0是默认值-->不侦测,1是设定不侦测
+  // 2侦测手指在上面的滚动,但是不侦测惯性滚动
+  // 3只要滚动都侦测
+  const bs = new BScroll(".content",{
+    probeType:3,
+    pullUpLoad: true,
+  });
+  bs.on("scroll",(position)=>{
+    // console.log(position);
+  });
+  // 没有参数
+  bs.on("pullingUp",()=>{
+    console.log("上拉刷新咯!");
+    //发送网络请求,请求更多页的数据
 
-  BScroll.use(Pullup)
-
-  export default {
-    name:"Classify",
-    data(){
-      return{
-        bs:null,
-      }
-    },
-    mounted(){
-      // 这种情况,bs就只能在一个函数中使用
-      // let bs = new BScroll('.wrapper',{
-      //   probeType:3,
-      // });
-      // bs.on("scroll",(position)=>{
-      //   console.log(position);
-      // });
-
-      this.BScroll();
-    },
-    methods:{
-      BScroll(){
-        this.bs = new BScroll('.wrapper',{
-          probeType:3,
-          pullUpLoad: true,
-        });
-        this.bs.on("scroll",(position)=>{
-          // console.log(position);
-        });
-        this.bs.on("pullingUp",()=>{
-          console.log("上拉刷新咯!");
-          this.bs.finishPullUp();
-        });
-      },
-    }
-  }
+    //等数据请求完成,并将新的数据显示出来后
+    bs.finishPullUp();
+  });
+  function aaa(){
+    console.log("按钮点击了");
+  };
 </script>
-
-<style scoped>
-  .wrapper{
-    height: 200px;
-    background-color: aqua;
-    overflow: hidden;
-  }
-</style>
+</html>
