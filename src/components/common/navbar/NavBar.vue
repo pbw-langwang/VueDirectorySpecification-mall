@@ -15,6 +15,12 @@
 <script>
 export default {
   name:"NavBar",
+  created(){
+    console.log("NavBar.vue is created:"+new Date().getTime());
+  },
+  mounted(){
+    console.log("NavBar.vue is mounted:"+new Date().getTime());
+  },
 }
 </script>
 

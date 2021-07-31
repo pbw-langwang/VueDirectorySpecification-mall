@@ -25,6 +25,12 @@
           return []
         }
       }
-    }
+    },
+    created(){
+      console.log("HomeSwiper.vue is created:"+new Date().getTime());
+    },
+    mounted(){
+      console.log("HomeSwiper.vue is mounted:"+new Date().getTime());
+    },
   }
 </script>

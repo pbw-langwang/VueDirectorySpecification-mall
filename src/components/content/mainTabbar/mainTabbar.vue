@@ -31,9 +31,16 @@
   import TabBarItem from 'components/common/tabbar/TabBarItem.vue';
 
   export default {
+    name:"MainTabbar",
     components:{
       TabBar,
       TabBarItem
-    }
+    },
+    created(){
+      console.log("MainTabbar.vue is created:"+new Date().getTime());
+    },
+    mounted(){
+      console.log("MainTabbar.vue is mounted:"+new Date().getTime());
+    },
   }
 </script>

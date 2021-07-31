@@ -15,6 +15,7 @@
 
 <script>
   export default {
+    name:"TabBarItem",
     props:{
       path:String,
       activeColor:{
@@ -43,7 +44,13 @@
         // 我的方法：
         return this.$route.path == this.path ? true : false;
       }
-    }
+    },
+    created(){
+      console.log("TabBarItem.vue is created:"+new Date().getTime());
+    },
+    mounted(){
+      console.log("TabBarItem.vue is mounted:"+new Date().getTime());
+    },
   }
 </script>
 

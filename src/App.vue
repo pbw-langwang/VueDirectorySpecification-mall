@@ -6,13 +6,19 @@
 </template>
 
 <script>
-  import mainTabbar from "components/content/mainTabbar/mainTabbar";
+  import mainTabbar from "components/content/mainTabbar/MainTabbar";
 
   export default {
     name:'app',
     components:{
       mainTabbar,
-    }
+    },
+    created(){
+      console.log("App.vue is created:"+new Date().getTime());
+    },
+    mounted(){
+      console.log("App.vue is mounted:"+new Date().getTime());
+    },
   }
 </script>
 

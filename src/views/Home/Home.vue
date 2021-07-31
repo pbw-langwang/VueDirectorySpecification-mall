@@ -68,10 +68,14 @@
       RecommendView,
     },
     created(){
+      console.log("Home.vue is created:"+new Date().getTime());
       this.getHomeMultidata2();
       this.getHomeGoods2("pop");
       this.getHomeGoods2("new");
       this.getHomeGoods2("sell");
+    },
+    mounted(){
+      console.log("Home.vue is mounted:"+new Date().getTime());
     },
     methods:{
       /**
@@ -97,7 +101,7 @@
        */
       getHomeMultidata2(){
         getHomeMultidata().then(res=>{
-          console.log(res);
+          // console.log(res);
           this.banners = res.data.banner.list;
           this.recommends = res.data.recommend.list;
         }).catch(err=>{
@@ -107,10 +111,10 @@
       getHomeGoods2(type){
         const page = this.goods[type].page+1;
         getHomeGoods(type,page).then(res=>{
-          console.log(res);
+          // console.log(res);
           this.goods[type].list = this.goods[type].list.concat(res.data.list);
           this.goods[type].page += 1;
-          console.log(this.goods);
+          // console.log(this.goods);
         });
       },
     }

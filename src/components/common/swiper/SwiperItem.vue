@@ -6,7 +6,13 @@
 
 <script>
 export default {
-  name:"Slide"
+  name:"Slide",
+  created(){
+    console.log("SwiperItem.vue is created:"+new Date().getTime());
+  },
+  mounted(){
+    console.log("SwiperItem.vue is mounted:"+new Date().getTime());
+  },
 }
 </script>
 

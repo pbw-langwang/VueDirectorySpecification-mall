@@ -43,13 +43,17 @@
         playTimer:null,//定时器名称
       }
     },
+    created(){
+      console.log("Swiper.vue is created:"+new Date().getTime());
+    },
     mounted: function () {
+      console.log("Swiper.vue is mounted:"+new Date().getTime());
       setTimeout(() => {
         // 1.操作DOM, 在前后添加Slide
         this.handleDom();
         // 2.开启定时器
         this.startTimer();
-      }, 1000)
+      }, 0)
     },
     methods: {
       /**

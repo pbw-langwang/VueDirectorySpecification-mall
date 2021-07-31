@@ -19,7 +19,13 @@
           return []
         }
       }
-    }
+    },
+    created(){
+      console.log("RecommendView.vue is created:"+new Date().getTime());
+    },
+    mounted(){
+      console.log("RecommendView.vue is mounted:"+new Date().getTime());
+    },
   }
 </script>
 

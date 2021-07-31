@@ -20,7 +20,13 @@ export default {
         return {}
       }
     }
-  }
+  },
+  created(){
+    console.log("ProductListItem.vue is created:"+new Date().getTime());
+  },
+  mounted(){
+    console.log("ProductListItem.vue is mounted:"+new Date().getTime());
+  },
 }
 </script>
 

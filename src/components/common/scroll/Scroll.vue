@@ -16,7 +16,11 @@
         BS:null,
       }
     },
+    created(){
+      console.log("Scroll.vue is created:"+new Date().getTime());
+    },
     mounted(){
+      console.log("Scroll.vue is mounted:"+new Date().getTime());
       setTimeout(()=>{
         this.BS = new BScroll(".PbwScroll",{
           click:true,

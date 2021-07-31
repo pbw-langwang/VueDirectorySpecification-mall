@@ -73,7 +73,8 @@ export function request(config){
   //2. 使用axios拦截器
   //2.1 请求拦截
   instance.interceptors.request.use(conF=>{
-    console.log(conF);
+    // console.log(conF);
+    console.log("request.js请求成功1:"+new Date().getTime());
     //如果不返回,则真正的请求被拦截了,用户就会打印err
     // *** 一般进行的操作 ***
     // 1. config中的一些信息不符合服务器要求,就可以在这修改,在创建实例时也可以
@@ -86,7 +87,8 @@ export function request(config){
   });
   //2.2 响应拦截
   instance.interceptors.response.use(res=>{
-    console.log(res);
+    // console.log(res);
+    console.log("request.js请求成功2:"+new Date().getTime());
     return res.data;
   },err=>{
     console.log(err);
@@ -121,13 +123,15 @@ export function request5(config){
     Timeout:3000,
   });
   instance.interceptors.request.use(conF=>{
-    console.log(conF);
+    // console.log(conF);
+    console.log("request5.js请求成功1:"+new Date().getTime());
     return conF;
   },err=>{
     console.log(err);
   });
   instance.interceptors.response.use(res=>{
-    console.log(res);
+    // console.log(res);
+    console.log("request5.js请求成功2:"+new Date().getTime());
     return res.data;
   },err=>{
     console.log(err);

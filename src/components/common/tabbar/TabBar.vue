@@ -6,7 +6,13 @@
 
 <script>
   export default {
-
+    name:"TabBar",
+    created(){
+      console.log("TabBar.vue is created:"+new Date().getTime());
+    },
+    mounted(){
+      console.log("TabBar.vue is mounted:"+new Date().getTime());
+    },
   }
 </script>
 

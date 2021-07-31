@@ -19,7 +19,13 @@
     },
     components:{
       ProductListItem
-    }
+    },
+    created(){
+      console.log("ProductList.vue is created:"+new Date().getTime());
+    },
+    mounted(){
+      console.log("ProductList.vue is mounted:"+new Date().getTime());
+    },
   }
 </script>
 

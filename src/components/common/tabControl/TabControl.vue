@@ -34,7 +34,13 @@
         this.currentIndex = index;
         this.$emit("tabClick",index);
       }
-    }
+    },
+    created(){
+      console.log("TabControl.vue is created:"+new Date().getTime());
+    },
+    mounted(){
+      console.log("TabControl.vue is mounted:"+new Date().getTime());
+    },
   }
 </script>
 

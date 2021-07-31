@@ -118,7 +118,11 @@
         bs:null,
       }
     },
+    created(){
+      console.log("Classify.vue is created:"+new Date().getTime());
+    },
     mounted(){
+      console.log("Classify.vue is mounted:"+new Date().getTime());
       // 这种情况,bs就只能在一个函数中使用
       // let bs = new BScroll('.wrapper',{
       //   probeType:3,
