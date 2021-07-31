@@ -2,10 +2,10 @@
 该分支(devPhone5之后), 此分支是用来测试的分支, 因为我的代码按照老师的来总是有点小bug, 所以我就想看看到底整个界面的加载流程到底是怎么样的
 <br/>
 如图:
-![](C:/Users/asus/Desktop/1.png)
+![](1.png)
 <br/>
 点击分类后,如图:
-![](C:/Users/asus/Desktop/2.png)
+![](2.png)
 <br/>
 学会了:
 
