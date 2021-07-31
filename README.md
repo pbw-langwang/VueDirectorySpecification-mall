@@ -1,31 +1,30 @@
-# 描述 -- master分支
-这是一个有关Vue项目初始化及其目录结构划分的项目,可以直接clone到本地进行开发
+# 描述 -- devPhone6分支
+该分支(devPhone5之后), 此分支是用来测试的分支, 因为我的代码按照老师的来总是有点小bug, 所以我就想看看到底整个界面的加载流程到底是怎么样的
 <br/>
-(对于目录划分不想每次都再来一遍的同学非常友好)
+如图:
+![](C:/Users/asus/Desktop/1.png)
 <br/>
-该目录结构应该是比较规范的,如有问题,请大家指正
-
-# 描述 -- devPhone5分支
-该分支(devPhone4之后)已经是在做项目的分支了,此分支使用了batter-scroll,其中Classify中的文件是对batter-scroll的测试以及简单的使用;封装了scroll组件,但是发现一些问题,按照哔站视频老师的方式无法实现,需要对其进行延时调用.
+点击分类后,如图:
+![](C:/Users/asus/Desktop/2.png)
 <br/>
 学会了:
-1. scoped中的样式确实是有作用域,但是类似于.content img{},这样的样式,会对其它界面产生影响,所以最好都用class表示
-2. 上下区域高度确定,中间的高度可以用定位或者css的calc函数
-3. 使用batter-scroll可以解决按照老师的代码,容易出现的屏幕莫名变宽现象(也可能是我的代码原因,css样式并不全是按照哔站老师所写)
+
+1. vue的created事件执行时, 是从外到内(App.vue --> home.vue), 进入到主要显示区域(home.vue)后是按照内容从上到下, 内容也是从最外层组件向里面进行created操作
+2. vue的mounted事件则是, 从内容最里层向外执行mounted, 主要显示区域的内容从上到下, , 等主要页面内容全部mounted后, 再来对主要界面进行mounted, 最后对App.vue进行mounted
+3. 有网络请求的(通过.getTime()测试), 获得请求得结果后, 才会同时进行created和mounted, 但是数据请求一般在App.vue执行mounted之后才会发生, 也可能是我的项目比较小, 所以才出现这种效果
+4. 使用vue-router, 切换tabbar会卸载其它界面, 导致再次进入页面时刷新; 未点击的界面不会提前加载
+
 <br/>
-可以用来借鉴,也可以在此基础上二次开发
 
 ## 开发注意事项
 1. 记得删除.git文件,以免无法和自己的库连接
 2. .editorconfig文件如果不需要请删除
 3. 里面的四个css规范化,是非常友好的,而且引用顺序也是我排好的,不建议修改顺序,代码有不合适自己的可以修改并保存为自己的哟!
-4. 注意自己根据需求,更改public中的index.html的动态改变根元素字体大小的值
+4. 使用时想看到图中效果, 应该删除.getTime() , .getTime()是为了查看request请求和ProductListItem.vue还有swiper.vue的顺序关系
+5. tabControl每次点击都会重新加载, 感觉今后视频也会解决的
 
 ## 注意
 a.txt文件是为了能上传到github才创建的,里面是介绍文件夹应该放什么东西
 
-## 缺陷
-1. 字体暂时只有一个科技字体,望大家积极补充
-2. 样式对于ul li ol的支持接近于零,但是一般也用不到原本样式的列表,如果对于html css感觉不太会修改的,可以看我的博客:https://blog.csdn.net/langwang_100/category_10206316.html
-3. 老师视频:https://www.bilibili.com/video/BV15741177Eh?p=168&spm_id_from=pageDriver
+老师视频:https://www.bilibili.com/video/BV15741177Eh?p=168&spm_id_from=pageDriver
 
