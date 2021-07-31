@@ -11,7 +11,7 @@
 
 1. vue的created事件执行时, 是从外到内(App.vue --> home.vue), 进入到主要显示区域(home.vue)后是按照内容从上到下, 内容也是从最外层组件向里面进行created操作
 2. vue的mounted事件则是, 从内容最里层向外执行mounted, 主要显示区域的内容从上到下, , 等主要页面内容全部mounted后, 再来对主要界面进行mounted, 最后对App.vue进行mounted
-3. 有网络请求的(通过.getTime()测试), 获得请求得结果后, 才会同时进行created和mounted, 数据请求一般在App.vue执行mounted之后才会发生, 也可能是我的项目比较小, 所以才出现这种效果
+3. 有网络请求的(通过.getTime()测试), 获得请求得结果后, 才会同时进行created和mounted, 数据请求一般在App.vue执行mounted之后才会发生(把延时改为0,还是一样), 也可能是我的项目比较小, 所以才出现这种效果
 4. 使用vue-router, 切换tabbar会卸载其它界面, 导致再次进入页面时刷新; 未点击的界面不会提前加载
 
 <br/>
