@@ -13,11 +13,16 @@
       background-color: red;
       overflow: hidden;
     }
+    .btndiv{
+      background-color: aqua;
+      padding: 10px;
+    }
   </style>
 </head>
 <body>
   <button onclick="aaa()">按钮</button>
   <div class="content">
+    <div class="btndiv" onclick="aaa2()">按钮</div>
     <ul>
       <button onclick="aaa()">按钮</button>
       <li>aaa1</li>
@@ -147,6 +152,9 @@
   });
   function aaa(){
     console.log("按钮点击了");
+  };
+  function aaa2(){
+    console.log("div点击了");
   };
 </script>
 </html>

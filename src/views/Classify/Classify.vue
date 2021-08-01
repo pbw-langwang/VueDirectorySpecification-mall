@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
+    <div style="background-color:red;line-height:100px" @click="aaa2()">div</div>
     <ul class="content">
+      <button @click="aaa()">按钮</button>
       <li>aaa1</li>
       <li>aaa2</li>
       <li>aaa3</li>
@@ -138,6 +140,8 @@
         this.bs = new BScroll('.wrapper',{
           probeType:3,
           pullUpLoad: true,
+          // batter-scroll在vue里面阻止了button以外的元素的点击,但是html里面不会
+          click:true
         });
         this.bs.on("scroll",(position)=>{
           // console.log(position);
@@ -146,6 +150,12 @@
           console.log("上拉刷新咯!");
           this.bs.finishPullUp();
         });
+      },
+      aaa(){
+        console.log("按钮点击了");
+      },
+      aaa2(){
+        console.log("div点击了");
       },
     }
   }

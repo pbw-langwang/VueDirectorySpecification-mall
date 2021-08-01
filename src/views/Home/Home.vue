@@ -8,7 +8,7 @@
       <div slot="right"></div>
     </nav-bar>
 
-    <scroll class="content1">
+    <scroll class="content1" ref="scroll">
       <hmoe-swiper :banner="banners"></hmoe-swiper>
     
       <recommend-view :recommend="recommends"/>
@@ -21,7 +21,7 @@
       <product-list :productList="goods[currentType].list"/>
     </scroll>
 
-    <back-top @click="backTopClick"/>
+    <back-top @click.native="backTopClick"/>
   </div>
 </template>
 
@@ -100,6 +100,8 @@
       },
       backTopClick(){
         console.log("aaaa");
+        console.log(this.$refs.scroll.BS);
+        this.$refs.scroll.scrollTo(0,0,800);
       },
 
       /**

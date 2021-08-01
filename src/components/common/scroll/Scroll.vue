@@ -29,6 +29,11 @@
         });
       },1000);
     },
+    methods:{
+      scrollTo(x,y,time=500){
+        this.BS.scrollTo(x,y,time);
+      },
+    }
   }
 </script>
 
