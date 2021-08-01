@@ -8,7 +8,12 @@
       <div slot="right"></div>
     </nav-bar>
 
-    <scroll class="content1" ref="scroll">
+    <scroll class="content1" ref="scroll" 
+      :probe-type="3"
+      :pull-up-load="true" 
+      @scroll="contentScroll"
+      @pullingUp="contentLoad"
+    >
       <hmoe-swiper :banner="banners"></hmoe-swiper>
     
       <recommend-view :recommend="recommends"/>
@@ -21,7 +26,7 @@
       <product-list :productList="goods[currentType].list"/>
     </scroll>
 
-    <back-top @click.native="backTopClick"/>
+    <back-top @click.native="backTopClick" v-show="showBTop" />
   </div>
 </template>
 
@@ -58,6 +63,7 @@
           },
         },
         currentType:'pop',
+        showBTop:false,
       }
     },
     components:{
@@ -102,6 +108,24 @@
         console.log("aaaa");
         console.log(this.$refs.scroll.BS);
         this.$refs.scroll.scrollTo(0,0,800);
+      },
+      contentScroll(position){
+        // console.log(position);
+        // if(position.y < -1000){
+        //   this.showBTop = true;
+        // }else{
+        //   this.showBTop = false;
+        // }
+
+        //简写
+        this.showBTop = -position.y > 1000;
+      },
+      contentLoad(){
+        this.getHomeGoods2(this.currentType);
+        // 这个我的思路是直接就在Scroll里面弹出事件后就自己执行
+        this.$refs.scroll.myfinishPullUp();
+        // 解决了一个的滚动,但是切换tabControl就不行了
+        // this.$refs.scroll.BS.refresh();
       },
 
       /**
