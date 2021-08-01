@@ -130,6 +130,8 @@
   // 0是默认值-->不侦测,1是设定不侦测
   // 2侦测手指在上面的滚动,但是不侦测惯性滚动
   // 3只要滚动都侦测
+  
+  // 2.元素的点击可以监听,但是组件的点击要加上click:true
   const bs = new BScroll(".content",{
     probeType:3,
     pullUpLoad: true,
