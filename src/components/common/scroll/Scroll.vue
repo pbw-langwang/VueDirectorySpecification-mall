@@ -23,6 +23,8 @@
       console.log("Scroll.vue is mounted:"+new Date().getTime());
       setTimeout(()=>{
         this.BS = new BScroll(".PbwScroll",{
+          /* 不加click:true,就监听不了tabControl的点击,
+             如果在tabControl里面加个按钮(原生元素),是可以监听按钮点击的 */
           click:true,
         });
       },1000);

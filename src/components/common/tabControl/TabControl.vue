@@ -3,6 +3,9 @@
     <div class="tab-control" v-for="(item,index) in title" :key="item" @click="change(index)">
       <span :style="actColor(index)">{{item}}</span>
     </div>
+    <!-- <div>
+      <button @click="try_Click()">按钮</button>
+    </div> -->
   </div>
 </template>
 
@@ -31,8 +34,12 @@
         return this.currentIndex === index ? {color:this.activeColor,'border-bottom':'solid 3px ' +this.activeColor} : "";
       },
       change(index){
+        console.log(index);
         this.currentIndex = index;
         this.$emit("tabClick",index);
+      },
+      try_Click(){
+        console.log("scroll监听元素点击事件");
       }
     },
     created(){

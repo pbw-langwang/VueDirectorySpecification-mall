@@ -21,6 +21,7 @@
       <product-list :productList="goods[currentType].list"/>
     </scroll>
 
+    <back-top @click="backTopClick"/>
   </div>
 </template>
 
@@ -29,6 +30,7 @@
   import TabControl from 'components/common/tabControl/TabControl.vue'
   import ProductList from 'components/common/productList/ProductList.vue'
   import Scroll from 'components/common/scroll/Scroll.vue'
+  import BackTop from 'components/common/backTop/BackTop.vue'
 
   import HmoeSwiper from './components/HmoeSwiper.vue'
   import RecommendView from './components/RecommendView.vue'
@@ -63,6 +65,7 @@
       TabControl,
       ProductList,
       Scroll,
+      BackTop,
 
       HmoeSwiper,
       RecommendView,
@@ -94,6 +97,9 @@
             this.currentType = "sell";
             break;
         }
+      },
+      backTopClick(){
+        console.log("aaaa");
       },
 
       /**
