@@ -23,6 +23,16 @@
       console.log("App.vue is mounted:"+new Date().getTime());
       this.getHomeMultidata2();
       this.getHomeGoods2("pop");
+
+      // 测试setTimeout的"事件循环" ---> 不给参数,也会把其留在后面执行
+      console.log("setTimeout的事件循环1");
+      setTimeout(()=>{
+        console.log("setTimeout的事件循环2");
+      });
+      setTimeout(()=>{
+        console.log("setTimeout的事件循环3");
+      },0);
+      console.log("setTimeout的事件循环4");
     },
     methods:{
       getHomeMultidata2(){

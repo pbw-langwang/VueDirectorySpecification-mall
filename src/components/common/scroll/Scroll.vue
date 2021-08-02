@@ -52,7 +52,9 @@
           //等数据请求完成,并将新的数据显示出来后
           // this.BS.finishPullUp();
         });
-      },1000);
+      // 监听图片加载完成时,就不能延时了 
+      // },1000);
+      },0);
     },
     methods:{
       scrollTo(x,y,time=500){
@@ -60,6 +62,11 @@
       },
       myfinishPullUp(){
         this.BS.finishPullUp();
+      },
+      myrefresh(){
+        console.log("myrefresh执行次数");
+        // 更加严谨,避免出现BS还未出现就调用其方法,常用于多次调用且顺序不定的情况
+        this.BS && this.BS.refresh();
       }
     }
   }

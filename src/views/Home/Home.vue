@@ -41,6 +41,7 @@
   import RecommendView from './components/RecommendView.vue'
 
   import {getHomeMultidata , getHomeGoods} from "network/home.js"
+  import {debounce} from "commonJS/utils.js"
 
   export default {
     name:"Home",
@@ -85,6 +86,17 @@
     },
     mounted(){
       console.log("Home.vue is mounted:"+new Date().getTime());
+      // 监听图片加载完成 ---> 可以解决昨天tabControl的bug
+      // this.$bus.$on("itemImgLoad",()=>{
+      //   console.log("Home.vue 监听图片加载了"+new Date().getTime());
+      //   this.$refs.scroll.myrefresh();
+      // });
+
+      // 防抖后代码
+      const refresh = debounce(this.$refs.scroll.myrefresh,100);
+      this.$bus.$on("itemImgLoad",()=>{
+        refresh();
+      });
     },
     methods:{
       /**
@@ -105,8 +117,7 @@
         }
       },
       backTopClick(){
-        console.log("aaaa");
-        console.log(this.$refs.scroll.BS);
+        // console.log("aaaa");
         this.$refs.scroll.scrollTo(0,0,800);
       },
       contentScroll(position){

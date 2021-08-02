@@ -1,6 +1,6 @@
 <template>
   <div class="productlistitem">
-    <img class="photo" :src="productlistitem.show.img" />
+    <img class="photo" :src="productlistitem.show.img" @load="imgLoad"/>
     <div class="content">
       <p class="title ellipsis1">{{productlistitem.title}}</p>
       <span class="price">{{productlistitem.price}}</span>
@@ -27,6 +27,11 @@ export default {
   mounted(){
     console.log("ProductListItem.vue is mounted:"+new Date().getTime());
   },
+  methods:{
+    imgLoad(){
+      this.$bus.$emit("itemImgLoad")
+    }
+  }
 }
 </script>
 
