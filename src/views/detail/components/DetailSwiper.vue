@@ -1,10 +1,8 @@
 <template>
   <div>
-    <swiper>
+    <swiper class="detailswiper">
       <swiper-item v-for="(item,index) in banner" :key="index">
-        <a :href="item.link">
-          <img :src="item.image" @load="swiperload">
-        </a>
+        <img class="topImg" :src="item" @load="detailImgload">
       </swiper-item>
     </swiper>
   </div>
@@ -12,8 +10,9 @@
 
 <script>
   import {Swiper,SwiperItem} from 'components/common/swiper/index.js'
+
   export default {
-    name:"HomeSwiper",
+    name:"DetailSwiper",
     components:{
       Swiper,
       SwiperItem
@@ -28,23 +27,25 @@
     },
     data(){
       return {
-        isLoad:false
+        isLoad:false,
       }
     },
-    created(){
-      console.log("HomeSwiper.vue is created:"+new Date().getTime());
-    },
-    mounted(){
-      console.log("HomeSwiper.vue is mounted:"+new Date().getTime());
-    },
     methods:{
-      // 监听图片加载完成
-      swiperload(){
+      detailImgload(){
         if(!this.isLoad){
-          this.$emit("swiperimgLoad");
+          this.$emit("detailImgload");
           this.isLoad = !this.isLoad;
         }
       }
     }
   }
 </script>
+<style scoped>
+  .detailswiper{
+    height: 300px;
+    overflow: hidden;
+  }
+  .topImg{
+    margin-top: -25%;
+  }
+</style>

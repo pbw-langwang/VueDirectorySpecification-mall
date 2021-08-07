@@ -58,7 +58,8 @@
     },
     methods:{
       scrollTo(x,y,time=500){
-        this.BS.scrollTo(x,y,time);
+        // 这个不写前面会有bug,在home.vue进行activated时
+        this.BS && this.BS.scrollTo(x,y,time);
       },
       myfinishPullUp(){
         this.BS.finishPullUp();
@@ -67,6 +68,11 @@
         console.log("myrefresh执行次数");
         // 更加严谨,避免出现BS还未出现就调用其方法,常用于多次调用且顺序不定的情况
         this.BS && this.BS.refresh();
+      },
+
+      // 现在的scroll-batter没有这个bug,这里可以省略
+      getscrollY(){
+        return this.BS ? this.BS.y : 0;
       }
     }
   }

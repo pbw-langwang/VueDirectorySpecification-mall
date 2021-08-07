@@ -8,20 +8,33 @@
       <div slot="right"></div>
     </nav-bar>
 
+    <tab-control 
+        :title="['流行','推荐','精选']" 
+        activeColor="blue" 
+        @tabClick="tabClick"
+        ref="HomeTabcontrol1"
+        v-show="isFixed"
+        class="FixedTabcontrol"
+      />
+
     <scroll class="content1" ref="scroll" 
       :probe-type="3"
       :pull-up-load="true" 
       @scroll="contentScroll"
       @pullingUp="contentLoad"
     >
-      <hmoe-swiper :banner="banners"></hmoe-swiper>
+      <hmoe-swiper :banner="banners" @swiperimgLoad="swiperimgLoad"></hmoe-swiper>
     
       <recommend-view :recommend="recommends"/>
 
       <img style="width:100%" src="~assets/img/home/recommend_bg.jpg">
 
-      <tab-control class="home-tabcontrol" :title="['流行','推荐','精选']" 
-      activeColor="blue" @tabClick="tabClick"/>
+      <tab-control 
+        :title="['流行','推荐','精选']" 
+        activeColor="blue" 
+        @tabClick="tabClick"
+        ref="HomeTabcontrol2"
+      />
 
       <product-list :productList="goods[currentType].list"/>
     </scroll>
@@ -65,6 +78,9 @@
         },
         currentType:'pop',
         showBTop:false,
+        tabOffsetTop:0,
+        isFixed:false,
+        saveY:0,
       }
     },
     components:{
@@ -98,6 +114,17 @@
         refresh();
       });
     },
+
+    // 现在的scroll-batter没有这个bug,这里可以省略
+    activated(){
+      // console.log("activated");
+      this.$refs.scroll.scrollTo(0,this.saveY,0);
+    },
+    deactivated(){
+      // console.log("deactivated");
+      this.saveY = this.$refs.scroll.getscrollY();
+    },
+
     methods:{
       /**
        * 事件
@@ -115,6 +142,8 @@
             this.currentType = "sell";
             break;
         }
+        this.$refs.HomeTabcontrol1.currentIndex = index;
+        this.$refs.HomeTabcontrol2.currentIndex = index;
       },
       backTopClick(){
         // console.log("aaaa");
@@ -128,15 +157,23 @@
         //   this.showBTop = false;
         // }
 
-        //简写
+        //简写,判断回到顶部图标是否显示
         this.showBTop = -position.y > 1000;
+
+        //判断选项卡是否吸顶
+        this.isFixed = -position.y > this.tabOffsetTop;
       },
       contentLoad(){
         this.getHomeGoods2(this.currentType);
         // 这个我的思路是直接就在Scroll里面弹出事件后就自己执行
         this.$refs.scroll.myfinishPullUp();
+
         // 解决了一个的滚动,但是切换tabControl就不行了
         // this.$refs.scroll.BS.refresh();
+      },
+      swiperimgLoad(){
+        // console.log(this.$refs.HomeTabcontrol.$el.offsetTop);
+        this.tabOffsetTop = this.$refs.HomeTabcontrol2.$el.offsetTop;
       },
 
       /**
@@ -175,18 +212,27 @@
     background-color: var(--color-tint);
     font-size: 1.5rem;
     color: white;
+
+    /* 用了batter-scroll,所以无用了
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
-    z-index: 9;
+    z-index: 9; */
   }
+  .FixedTabcontrol{
+    position: relative;
+    top: -1px;
+    z-index: 9;
+    background-color: white;
+  }
+  /* 用了batter-scroll,所以无用了
   .home-tabcontrol{
     position: sticky;
     top: 43px;
     left: 0;
     right: 0;
-  }
+  } */
   .content1{
     /* 上下区域高度确定,中间的高度可以用定位或者css的calc函数 */
     position: absolute;

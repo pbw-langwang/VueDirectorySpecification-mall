@@ -1,5 +1,5 @@
 <template>
-  <div class="productlistitem">
+  <div class="productlistitem" @click="gotodetail">
     <img class="photo" :src="productlistitem.show.img" @load="imgLoad"/>
     <div class="content">
       <p class="title ellipsis1">{{productlistitem.title}}</p>
@@ -30,6 +30,10 @@ export default {
   methods:{
     imgLoad(){
       this.$bus.$emit("itemImgLoad")
+    },
+    gotodetail(){
+      console.log("去详情页!");
+      this.$router.push("/detail/"+this.productlistitem.iid);
     }
   }
 }

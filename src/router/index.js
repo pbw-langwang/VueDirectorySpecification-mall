@@ -29,6 +29,10 @@ const routes = [
     path: "/mine",
     component: () => import('views/Profile/Profile.vue')
   },
+  {
+    path: "/detail/:iid",
+    component: () => import('views/detail/Detail.vue')
+  },
 ]
 
 const router = new VueRouter({
