@@ -2,7 +2,7 @@
   <div>
     <swiper class="detailswiper">
       <swiper-item v-for="(item,index) in banner" :key="index">
-        <img class="topImg" :src="item" @load="detailImgload">
+        <img class="topImg" :src="item">
       </swiper-item>
     </swiper>
   </div>
@@ -30,14 +30,6 @@
         isLoad:false,
       }
     },
-    methods:{
-      detailImgload(){
-        if(!this.isLoad){
-          this.$emit("detailImgload");
-          this.isLoad = !this.isLoad;
-        }
-      }
-    }
   }
 </script>
 <style scoped>

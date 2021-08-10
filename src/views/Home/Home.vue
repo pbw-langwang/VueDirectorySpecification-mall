@@ -19,7 +19,7 @@
 
     <scroll class="content1" ref="scroll" 
       :probe-type="3"
-      :pull-up-load="true" 
+      :pull-up-load="true"
       @scroll="contentScroll"
       @pullingUp="contentLoad"
     >
@@ -81,6 +81,7 @@
         tabOffsetTop:0,
         isFixed:false,
         saveY:0,
+        homeimgLoad:null,
       }
     },
     components:{
@@ -110,19 +111,25 @@
 
       // 防抖后代码
       const refresh = debounce(this.$refs.scroll.myrefresh,100);
-      this.$bus.$on("itemImgLoad",()=>{
+      this.homeimgLoad = ()=> {
         refresh();
-      });
+      };
+      this.$bus.$on("itemImgLoad",this.homeimgLoad);
     },
 
     // 现在的scroll-batter没有这个bug,这里可以省略
     activated(){
-      // console.log("activated");
+      console.log("activated");
       this.$refs.scroll.scrollTo(0,this.saveY,0);
+      this.$refs.scroll.myrefresh();
     },
     deactivated(){
-      // console.log("deactivated");
+      console.log("deactivated");
+      // 1.保存y值
       this.saveY = this.$refs.scroll.getscrollY();
+
+      // 2.取消监听
+      this.$bus.$off("itemImgLoad",this.homeimgLoad);
     },
 
     methods:{

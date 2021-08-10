@@ -10,3 +10,5 @@ export function debounce(func,delay){
     },delay);
   }
 };
+
+//2. 时间戳转换函数

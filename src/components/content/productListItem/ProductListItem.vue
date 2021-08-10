@@ -1,6 +1,6 @@
 <template>
   <div class="productlistitem" @click="gotodetail">
-    <img class="photo" :src="productlistitem.show.img" @load="imgLoad"/>
+    <img class="photo" :src="showImg" @load="imgLoad"/>
     <div class="content">
       <p class="title ellipsis1">{{productlistitem.title}}</p>
       <span class="price">{{productlistitem.price}}</span>
@@ -34,6 +34,11 @@ export default {
     gotodetail(){
       console.log("去详情页!");
       this.$router.push("/detail/"+this.productlistitem.iid);
+    }
+  },
+  computed:{
+    showImg(){
+      return this.productlistitem.image || this.productlistitem.show.img;
     }
   }
 }

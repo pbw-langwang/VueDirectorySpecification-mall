@@ -1,6 +1,6 @@
 <template>
   <div class="productList flex-row-spaceAround">
-    <product-list-item class="productList-item" v-for="item in productList" :key="item.iid" :productlistitem="item"/>
+    <product-list-item class="productList-item" v-for="(item,index) in productList" :key="index" :productlistitem="item"/>
   </div>
 </template>
 
@@ -20,12 +20,12 @@
     components:{
       ProductListItem
     },
-    created(){
-      console.log("ProductList.vue is created:"+new Date().getTime());
-    },
-    mounted(){
-      console.log("ProductList.vue is mounted:"+new Date().getTime());
-    },
+    // created(){
+    //   console.log("ProductList.vue is created:"+new Date().getTime());
+    // },
+    // mounted(){
+    //   console.log("ProductList.vue is mounted:"+new Date().getTime());
+    // },
   }
 </script>
 

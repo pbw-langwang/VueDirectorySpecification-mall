@@ -26,7 +26,7 @@
     },
     data(){
       return {
-        titleList:["参数","详情","评论","推荐"],
+        titleList:["详情","参数","评论","推荐"],
         currenctIndex:0,
       }
     },

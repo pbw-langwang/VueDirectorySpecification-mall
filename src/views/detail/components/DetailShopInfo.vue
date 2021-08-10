@@ -12,7 +12,7 @@
     <div class="flex-row-spaceBetween">
       <div class="left flex-row-spaceAround">
         <div class="flex-column-spaceAround">
-          <p class="marginB">{{shop.sells}}</p>
+          <p class="marginB">{{shop.sells | sellFilter}}</p>
           <p>总销量</p>
         </div>
         <div class="flex-column-spaceAround">
@@ -48,6 +48,15 @@ export default {
       return e ? "redColor" : "greenColor";
     }
   },
+  filters:{
+    sellFilter(value){
+      let sellNum;
+      if(value > 10000){
+        sellNum = (value/10000).toFixed(2);
+      }
+      return `${sellNum}万`;
+    }
+  }
 }
 </script>
 
