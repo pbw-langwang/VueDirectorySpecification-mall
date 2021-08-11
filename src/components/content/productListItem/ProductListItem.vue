@@ -29,7 +29,13 @@ export default {
   },
   methods:{
     imgLoad(){
-      this.$bus.$emit("itemImgLoad")
+      // console.log(this.$route.path.indexOf("/home"));
+      // console.log(this.$route.path.indexOf("/detail"));
+      if(this.$route.path.indexOf("/home") >= 0){
+        this.$bus.$emit("homeitemImgLoad");
+      }else if(this.$route.path.indexOf("/detail") >= 0){
+        this.$bus.$emit("detailitemImgLoad");
+      }
     },
     gotodetail(){
       console.log("去详情页!");

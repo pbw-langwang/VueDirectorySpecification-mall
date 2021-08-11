@@ -1,9 +1,7 @@
 <template>
   <div class="detail">
     <detail-nav-bar/>
-    <scroll class="content1" ref="scroll"
-      :probe-type="3"
-    >
+    <scroll class="content1" ref="scroll">
       <detail-swiper :banner="TopImages"/>
       <detail-goods-info class="marginBottom" :goods="Goods"/>
       <detail-shop-info class="marginBottom" :shop="shop"/>
@@ -100,13 +98,13 @@
       this.detailimgLoad = ()=>{
         refresh();
       };
-      this.$bus.$on("itemImgLoad",this.detailimgLoad);
+      this.$bus.$on("detailitemImgLoad",this.detailimgLoad);
     },
     // 没有缓存的的界面,没有deactivated这个东西
     // deactivated(){
     destroyed(){
-      console.log("detail is destroyed!");
-      this.$bus.$off("itemImgLoad",this.detailimgLoad);
+      // console.log("detail is destroyed!");
+      // this.$bus.$off("detailitemImgLoad",this.detailimgLoad);
     }
     /** 
     activated(){

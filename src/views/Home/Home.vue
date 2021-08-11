@@ -114,22 +114,22 @@
       this.homeimgLoad = ()=> {
         refresh();
       };
-      this.$bus.$on("itemImgLoad",this.homeimgLoad);
+      this.$bus.$on("homeitemImgLoad",this.homeimgLoad);
     },
 
     // 现在的scroll-batter没有这个bug,这里可以省略
     activated(){
-      console.log("activated");
+      // console.log("activated");
       this.$refs.scroll.scrollTo(0,this.saveY,0);
       this.$refs.scroll.myrefresh();
     },
     deactivated(){
-      console.log("deactivated");
+      // console.log("deactivated");
       // 1.保存y值
       this.saveY = this.$refs.scroll.getscrollY();
 
-      // 2.取消监听
-      this.$bus.$off("itemImgLoad",this.homeimgLoad);
+      // 2.不能取消监听 -> 不然就会出现回到首页不能滚动
+      // this.$bus.$off("homeitemImgLoad",this.homeimgLoad);
     },
 
     methods:{
