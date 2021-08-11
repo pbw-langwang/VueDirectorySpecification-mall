@@ -95,10 +95,11 @@
       this.$bus.$on("goodsImgLoad",()=>{
         refresh1();
       });
-
-      const refresh = debounce(this.$refs.scroll.myrefresh,100);
+      
+      // 不管名字相不相同,都没有用
+      const refresh2 = debounce(this.$refs.scroll.myrefresh,100);
       this.detailimgLoad = ()=>{
-        refresh();
+        refresh2();
       };
       this.$bus.$on("itemImgLoad",this.detailimgLoad);
     },

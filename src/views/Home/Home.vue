@@ -81,7 +81,7 @@
         tabOffsetTop:0,
         isFixed:false,
         saveY:0,
-        homeimgLoad:null,
+        detailimgLoad:null,
       }
     },
     components:{
@@ -111,10 +111,10 @@
 
       // 防抖后代码
       const refresh = debounce(this.$refs.scroll.myrefresh,100);
-      this.homeimgLoad = ()=> {
+      this.detailimgLoad = ()=> {
         refresh();
       };
-      this.$bus.$on("itemImgLoad",this.homeimgLoad);
+      this.$bus.$on("itemImgLoad",this.detailimgLoad);
     },
 
     // 现在的scroll-batter没有这个bug,这里可以省略
@@ -128,8 +128,8 @@
       // 1.保存y值
       this.saveY = this.$refs.scroll.getscrollY();
 
-      // 2.取消监听
-      this.$bus.$off("itemImgLoad",this.homeimgLoad);
+      // 2.取消监听,不管取消监听相同名字还是不同名字都不行
+      this.$bus.$off("itemImgLoad",this.detailimgLoad);
     },
 
     methods:{
