@@ -1,13 +1,16 @@
 <template>
   <div class="detail">
-    <detail-nav-bar/>
-    <scroll class="content1" ref="scroll">
+    <detail-nav-bar ref="navBar" @detailNavClick="detailNavClick"/>
+    <scroll class="content1" ref="scroll"
+      :probe-type="3"
+      @scroll="detailNavshow"
+    >
       <detail-swiper :banner="TopImages"/>
       <detail-goods-info class="marginBottom" :goods="Goods"/>
       <detail-shop-info class="marginBottom" :shop="shop"/>
       <detail-goods-img :goods-img="goodsImg"/>
-      <detail-good-params :goodparams="itemParams"/>
-      <p style="margin:0 0 20px;text-align:center">________推荐________</p>
+      <detail-good-params ref="params" :goodparams="itemParams"/>
+      <p ref="recommend" style="margin:0 0 20px;text-align:center">________推荐________</p>
       <product-list :product-list="Recommends"/>
     </scroll>
   </div>
@@ -50,6 +53,9 @@
         itemParams:{},
         Recommends:[],
         detailimgLoad:null,
+        themeTopys:[],
+        getThemeoffsetTop:null,
+        index:-1,
       }
     },
     created(){
@@ -78,13 +84,24 @@
         console.log(err);
       });
       // }
-
+      
+      // 获取推荐数据
       getRecommend().then(res=>{
         console.log(res);
         this.Recommends = res.data.list;
       }).catch(err=>{
         console.log(err);
       });
+
+      // 获取要联动的offsetTop
+      this.getThemeoffsetTop = debounce(()=>{
+        this.themeTopys[0] = 0;
+        this.themeTopys[1] = this.$refs.params.$el.offsetTop;
+        this.themeTopys[2] = this.$refs.recommend.offsetTop;
+        this.themeTopys[3] = this.$refs.recommend.offsetTop;
+        this.themeTopys[4] = Infinity;
+        console.log(this.themeTopys);
+      },100);
     },
     mounted(){
       // 监听商品图片
@@ -92,21 +109,57 @@
       const refresh1 = debounce(this.$refs.scroll.myrefresh,200);
       this.$bus.$on("goodsImgLoad",()=>{
         refresh1();
+        this.getThemeoffsetTop();
       });
 
       const refresh = debounce(this.$refs.scroll.myrefresh,100);
       this.detailimgLoad = ()=>{
         refresh();
+        this.getThemeoffsetTop();
       };
       this.$bus.$on("detailitemImgLoad",this.detailimgLoad);
     },
-    // 没有缓存的的界面,没有deactivated这个东西
-    // deactivated(){
-    destroyed(){
-      // console.log("detail is destroyed!");
-      // this.$bus.$off("detailitemImgLoad",this.detailimgLoad);
+    methods:{
+      detailNavClick(index){
+        // console.log(index);
+        this.$refs.scroll.scrollTo(0,-this.themeTopys[index],500);
+      },
+      detailNavshow(position){
+        // console.log(position);
+        // switch(true){
+        //   case -position.y <= this.themeTopys[1] : this.$refs.navBar.currenctIndex = 0;break;
+        //   case -position.y <= this.themeTopys[3] : this.$refs.navBar.currenctIndex = 1;break;
+        // }
+
+        // 1.普通做法
+        // const length = this.themeTopys.length;
+        // for(let i = 0;i<length;i++){
+        //   if((this.index !== i) && ((i < length-1 && -position.y >= this.themeTopys[i] && -position.y
+        //   < this.themeTopys[i+1]) || (i === length-1 && -position.y >= this.themeTopys[i]))){
+        //     this.index = i;
+        //     console.log(this.index);
+        //     this.$refs.navBar.currenctIndex = this.index;
+        //   }
+        // }
+
+        //2.hack做法-->在数组的后面加一个极大值 --> 使得if里面变简单
+        const length = this.themeTopys.length;
+        for(let i = 0;i<length-1;i++){
+          if((this.index !== i) && (-position.y >= this.themeTopys[i] && -position.y
+          < this.themeTopys[i+1])){
+            this.index = i;
+            this.$refs.navBar.currenctIndex = this.index;
+          }
+        }
+      },
     }
-    /** 
+    /**
+    没有缓存的的界面,没有deactivated这个东西
+    deactivated(){
+    destroyed(){
+      console.log("detail is destroyed!");
+      this.$bus.$off("detailitemImgLoad",this.detailimgLoad);
+    },
     activated(){
       this.iid = this.$route.params.iid;
       getDetaildata(this.iid).then(res=>{

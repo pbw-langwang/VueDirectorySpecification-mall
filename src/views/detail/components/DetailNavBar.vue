@@ -33,6 +33,7 @@
     methods:{
       getIndex(index){
         this.currenctIndex = index;
+        this.$emit("detailNavClick",index);
       },
       backClick(){
         this.$router.back();
