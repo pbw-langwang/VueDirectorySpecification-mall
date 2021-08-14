@@ -13,6 +13,8 @@
       <p ref="recommend" style="margin:0 0 20px;text-align:center">________推荐________</p>
       <product-list :product-list="Recommends"/>
     </scroll>
+    <detail-bom />
+    <back-top @click.native="backTopClick" v-show="showBTop" />
   </div>
 </template>
 
@@ -23,12 +25,15 @@
   import DetailShopInfo from './components/DetailShopInfo.vue'
   import DetailGoodsImg from './components/DetailGoodsImg.vue';
   import DetailGoodParams from './components/DetailGoodParams.vue';
+  import DetailBom from './components/DetailBom.vue';
 
   import Scroll from 'components/common/scroll/Scroll.vue'
   import ProductList from 'components/common/productList/ProductList.vue'
 
   import {getDetaildata,getRecommend,GoodsInfo,shopInfo} from 'network/detail.js'
   import {debounce} from "commonJS/utils.js"
+
+  import {backTop} from "commonJS/mixins.js"
 
   export default {
     name:"Detail",
@@ -39,6 +44,7 @@
       DetailShopInfo,
       DetailGoodsImg,
       DetailGoodParams,
+      DetailBom,
 
       Scroll,
       ProductList,
@@ -58,6 +64,7 @@
         index:-1,
       }
     },
+    mixins:[backTop],
     created(){
       // 我的:加actived,但是不是很好,代码重复
       // 视频:直接把Detail从keep-alive里面剔除
@@ -125,12 +132,6 @@
         this.$refs.scroll.scrollTo(0,-this.themeTopys[index],500);
       },
       detailNavshow(position){
-        // console.log(position);
-        // switch(true){
-        //   case -position.y <= this.themeTopys[1] : this.$refs.navBar.currenctIndex = 0;break;
-        //   case -position.y <= this.themeTopys[3] : this.$refs.navBar.currenctIndex = 1;break;
-        // }
-
         // 1.普通做法
         // const length = this.themeTopys.length;
         // for(let i = 0;i<length;i++){
@@ -141,6 +142,9 @@
         //     this.$refs.navBar.currenctIndex = this.index;
         //   }
         // }
+
+        // 3.监听backTop是否显示
+        this.showBTop = -position.y > 1000;
 
         //2.hack做法-->在数组的后面加一个极大值 --> 使得if里面变简单
         const length = this.themeTopys.length;
@@ -181,12 +185,13 @@
     /* 上下区域高度确定,中间的高度可以用定位或者css的calc函数 */
     position: absolute;
     top: 44px;
-    bottom: 0;
+    bottom: 49px;
     left: 0;
     right: 0;
     overflow: hidden;
     z-index: 9;
     background-color: #fff;
+    /* padding-bottom: 20px; 对batter-scroll无效*/
   }
   .marginBottom{
     margin-bottom: 10px;

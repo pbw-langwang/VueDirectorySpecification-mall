@@ -19,5 +19,6 @@
     background-color: white;
     padding: 10px;
     border-radius: 50%;
+    z-index: 100;
   }
 </style>

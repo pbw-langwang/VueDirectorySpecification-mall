@@ -48,13 +48,14 @@
   import TabControl from 'components/common/tabControl/TabControl.vue'
   import ProductList from 'components/common/productList/ProductList.vue'
   import Scroll from 'components/common/scroll/Scroll.vue'
-  import BackTop from 'components/common/backTop/BackTop.vue'
 
   import HmoeSwiper from './components/HmoeSwiper.vue'
   import RecommendView from './components/RecommendView.vue'
 
   import {getHomeMultidata , getHomeGoods} from "network/home.js"
   import {debounce} from "commonJS/utils.js"
+
+  import {backTop} from "commonJS/mixins.js"
 
   export default {
     name:"Home",
@@ -77,7 +78,6 @@
           },
         },
         currentType:'pop',
-        showBTop:false,
         tabOffsetTop:0,
         isFixed:false,
         saveY:0,
@@ -89,11 +89,11 @@
       TabControl,
       ProductList,
       Scroll,
-      BackTop,
 
       HmoeSwiper,
       RecommendView,
     },
+    mixins:[backTop],
     created(){
       console.log("Home.vue is created:"+new Date().getTime());
       this.getHomeMultidata2();
@@ -151,10 +151,6 @@
         }
         this.$refs.HomeTabcontrol1.currentIndex = index;
         this.$refs.HomeTabcontrol2.currentIndex = index;
-      },
-      backTopClick(){
-        // console.log("aaaa");
-        this.$refs.scroll.scrollTo(0,0,800);
       },
       contentScroll(position){
         // console.log(position);
