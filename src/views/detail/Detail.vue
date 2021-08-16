@@ -13,7 +13,7 @@
       <p ref="recommend" style="margin:0 0 20px;text-align:center">________推荐________</p>
       <product-list :product-list="Recommends"/>
     </scroll>
-    <detail-bom />
+    <detail-bom @addCart="addToCart"/>
     <back-top @click.native="backTopClick" v-show="showBTop" />
   </div>
 </template>
@@ -107,7 +107,7 @@
         this.themeTopys[2] = this.$refs.recommend.offsetTop;
         this.themeTopys[3] = this.$refs.recommend.offsetTop;
         this.themeTopys[4] = Infinity;
-        console.log(this.themeTopys);
+        // console.log(this.themeTopys);
       },100);
     },
     mounted(){
@@ -156,6 +156,20 @@
           }
         }
       },
+      addToCart(){
+        // console.log("---------");
+        const product = {};
+        product.img = this.TopImages[0];
+        product.title = this.Goods.title;
+        product.desc = this.Goods.desc;
+        product.price = this.Goods.realPrice;
+        product.iid = this.iid;
+        // console.log(product);
+        
+        // 使用vuex,将商品添加进购物车
+        // this.$store.commit('addCart', product);
+        this.$store.dispatch('addCart', product);
+      }
     }
     /**
     没有缓存的的界面,没有deactivated这个东西

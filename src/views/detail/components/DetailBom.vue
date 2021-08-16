@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="right">
-      <div class="Rleft">
+      <div class="Rleft" @click="addCart">
         <p class="add_shop">加入购物车</p>
       </div>
       <div class="Rright">
@@ -27,7 +27,12 @@
 
 <script>
   export default {
-
+    name:"DetailBom",
+    methods:{
+      addCart(){
+        this.$emit("addCart");
+      }
+    }
   }
 </script>
 
