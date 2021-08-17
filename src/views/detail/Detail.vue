@@ -35,6 +35,8 @@
 
   import {backTop} from "commonJS/mixins.js"
 
+  import {mapActions} from 'vuex';
+
   export default {
     name:"Detail",
     components:{
@@ -156,6 +158,7 @@
           }
         }
       },
+      ...mapActions(["addCart"]),
       addToCart(){
         // console.log("---------");
         const product = {};
@@ -168,7 +171,14 @@
         
         // 使用vuex,将商品添加进购物车
         // this.$store.commit('addCart', product);
-        this.$store.dispatch('addCart', product);
+        // this.$store.dispatch('addCart', product).then(res=>{
+        //   console.log(res);
+        // });
+
+        this.addCart(product).then(res=>{
+          // console.log(res);
+          this.$toast.Show(res);
+        });
       }
     }
     /**

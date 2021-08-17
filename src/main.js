@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import toast from 'components/common/toast'
+Vue.use(toast);
+
 // 前期自己写组件比较好
 // import { Card } from 'vant';
 // Vue.use(Card);

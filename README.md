@@ -1,13 +1,13 @@
-# 描述 -- devPhone13分支
-该分支(devPhone12之后), vuex本来想要更加细分-->把state/mutations/actions/一些常量都应该提取成文件,但是我感觉麻烦,这里就没有细分了,毕竟项目很简单 ; 完成了购物车的展示和结算
+# 描述 -- devPhone14分支
+该分支(devPhone13之后), 把CartBomNav进行了一点修改 ; 写好了全选按钮 ; 封装了toast弹窗(插件形式) 
 <br/>
 学会了:
-1. 事件总线并不是适合所有情况,必须发送和接收事件的组件都得创建出来了! --> 更多情况建议使用vuex
-2. 复习了vuex的使用 --> 取到值是this.$store.state.cartList ; 修改值得规范(看截图) ;  mutations中的方法尽可能完成的功能单一一点(store/index.js) ; gtters结合计算属性(见ShopCart.vue)
-3. vant组件按需求引入的用法 --> main.js和.babelrc (前期还是自己写样式和组件比较好,别人的其实也不是很好用,除非你一开始就是用组件库写 [其实就是我用vant结果老是给我报错,我就不想用了] )
-4. 修改传递的值,其本身的值也会改变 --> 见ShopCart.vue和CartList.vue,methods里面两种方式都可以
-5. 发现了自己其实一直把计算属性和过滤属性搞混了
-6. 再次提醒自己使用vue插件,有时候不是代码问题,是样式问题
+1. 高阶函数,数组/对象的操作函数,都非常重要,要记住!!! (我总是感觉会查就行了,但是现在感觉最好记住)
+2. vuex的dispatch可以返回一个promise对象!!! --> 写在actions里面
+3. vuex的mapGetters的两种写法,见:ShopCart.vue,对象-->重定义名字;数组-->直接使用 [mapGetters映射vuex的getters方法]
+4. vuex的mapActions,见:Detail.vue [mapActions映射vuex的actions方法]
+5. 了解到了插件的封装方式,见:toast文件夹 --> 很重要,有利于看别人封装的东西,vue.use()会去对应的文件夹里找index.js,并且会执行里面的install
+6. fastclick/vue-lazyload --> 两个库,视频讲了一点,我没有写,先知道今后有用就好找
 
 ## 开发注意事项
 1. 记得删除.git文件,以免无法和自己的库连接
@@ -21,5 +21,4 @@ a.txt文件是为了能上传到github才创建的,里面是介绍文件夹应�
 老师视频:https://www.bilibili.com/video/BV15741177Eh?p=168&spm_id_from=pageDriver
 <br/>
 还有一个bug,就是tabControl滚动后,点击其它的选项,也会显示滚动后的位置,现在我暂时没想到思路,要是后面视频讲了我就按照老师的来,没讲我就自己写一写,可能需要改变页面的数据结构
-<br/>
-还差全选没做,明天再来
+

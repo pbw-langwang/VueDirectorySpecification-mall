@@ -20,23 +20,27 @@ export default new Vuex.Store({
   },
   actions: {
     addCart(context,payload){
-      //payload新添加的商品
-      let product = null;
-      // 看新添加的商品是已有还是没有
-      for(let item of context.state.cartList){
-        if(item.iid === payload.iid){
-          product = item;
+      return new Promise((resolve,reject)=>{
+        //payload新添加的商品
+        let product = null;
+        // 看新添加的商品是已有还是没有
+        for(let item of context.state.cartList){
+          if(item.iid === payload.iid){
+            product = item;
+          }
         }
-      }
-      // 有的话就直接加一;没有的话就设置count,并将新的加入
-      if(product){
-        // product.count += 1;
-        context.commit("addCount",product);
-      }else{
-        // payload.count = 1;
-        // context.state.cartList.push(payload);
-        context.commit("pushtoList",payload);
-      }
+        // 有的话就直接加一;没有的话就设置count,并将新的加入
+        if(product){
+          // product.count += 1;
+          context.commit("addCount",product);
+          resolve("商品数量加一");
+        }else{
+          // payload.count = 1;
+          // context.state.cartList.push(payload);
+          context.commit("pushtoList",payload);
+          resolve("添加商品成功");
+        }
+      })
     }
   },
   modules: {
