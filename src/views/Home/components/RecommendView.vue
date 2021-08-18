@@ -35,8 +35,8 @@
   text-align: center;
 }
 .recommend-item img{
-  width: 4rem;
-  height: 4rem;
+  width: 64px;
+  height: 64px;
   margin-bottom: 10px;
 }
 

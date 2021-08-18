@@ -63,6 +63,7 @@ export default {
 <style scoped>
   .detail-shopInfo{
     padding: 0px 10px;
+    font-size: 15px;
   }
   .shopTop-left{
     display: flex;
@@ -74,7 +75,7 @@ export default {
     margin-right: 15px;
   }
   .shopTop-name{
-    font-size: 1.2rem;
+    font-size: 18px;
     font-weight: 700;
   }
   .left{
@@ -83,7 +84,7 @@ export default {
   }
   .marginB{
     margin-bottom: 15px;
-    font-size: 1.2rem;
+    font-size: 18px;
     font-weight: 700;
   }
   .score{
@@ -105,13 +106,13 @@ export default {
   .redBg{
     background-color: red;
     color: white;
-    padding: 2px;
+    padding: 2px 11px;
     border-radius: 4px;
   }
   .greenBg{
     background-color: green;
     color: white;
-    padding: 2px;
+    padding: 2px 11px;
     border-radius: 4px;
   }
 </style>

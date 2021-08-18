@@ -58,6 +58,7 @@
   }
   .tab-control{
     text-align: center;
+    font-size: 18px;
   }
   .tab-control span{
     padding:5px;

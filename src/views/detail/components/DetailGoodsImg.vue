@@ -47,6 +47,7 @@
 <style scoped>
   .goodsImgBox{
     padding: 0 10px;
+    font-size: 15px;
   }
   .goodsImgkey{
     margin: 10px 0;

@@ -61,12 +61,19 @@ export default {
     text-align: center;
   }
   .content img{
-    width: 1rem;
-    height: 1rem;
-    vertical-align: text-top;
+    width: 15px;
+    height: 15px;
+    vertical-align: text-bottom;
+  }
+  .title{
+    font-size: 15px;
   }
   .price{
+    font-size: 15px;
     margin-right: 20px;
     color: var(--color-high-text);
+  }
+  .collect{
+    font-size: 15px;
   }
 </style>

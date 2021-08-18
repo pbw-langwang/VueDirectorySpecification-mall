@@ -71,6 +71,7 @@
     padding: 2%;
     min-height: 100px;
     max-height: 180px;
+    font-size: 15px;
   }
   .select{
     display: flex;
@@ -109,7 +110,7 @@
     right: 0;
   }
   .price{
-    font-size: 1.5rem;
+    font-size: 18px;
     color: red;
   }
   .ellipsis1{

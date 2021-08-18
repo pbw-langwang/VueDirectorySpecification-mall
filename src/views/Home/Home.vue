@@ -213,7 +213,7 @@
   }
   .home-nav{
     background-color: var(--color-tint);
-    font-size: 1.5rem;
+    font-size: 18px;
     color: white;
 
     /* 用了batter-scroll,所以无用了

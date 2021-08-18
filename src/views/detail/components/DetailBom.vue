@@ -60,7 +60,7 @@
     height: 20px;
   }
   .title{
-    font-size: 0.6rem;
+    font-size: 14px;
   }
   .right{
     width: 60%;
@@ -85,5 +85,6 @@
   }
   .add_shop{
     color: #fff;
+    font-size: 15px;
   }
 </style>

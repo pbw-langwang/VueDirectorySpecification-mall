@@ -38,10 +38,11 @@
 <style scoped>
   .goodParams{
     padding: 20px 10px;
+    font-size: 15px;
   }
   .title{
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 18px;
   }
   .table{
     width: calc(100vw - 20px);

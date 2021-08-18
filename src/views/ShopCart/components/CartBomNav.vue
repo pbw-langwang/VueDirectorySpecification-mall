@@ -73,6 +73,7 @@
     line-height: 30px;
     background-color: #aaa;
     padding-left: 10px;
+    font-size: 15px;
   }
   .checkboxAllLabel{
     margin-left: 5px;

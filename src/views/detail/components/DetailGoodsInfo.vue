@@ -38,26 +38,28 @@
 <style scoped>
   .detail-goodsInfo{
     padding: 0px 10px;
+    font-size: 15px;
   }
   .title{
+    font-size: 18px;
     margin-bottom: 15px;
   }
   .Price{
     margin-bottom: 15px;
   }
   .newPrice{
-    font-size: 1.5rem;
+    font-size: 15px;
     color: var(--color-high-text);
     margin-right: 10px;
   }
   .oldPrice{
-    font-size: 0.8rem;
+    font-size: 14px;
     color: var(--color-text);
     margin-right: 10px;
     text-decoration: line-through;
   }
   .discount{
-    font-size: 1.1rem;
+    font-size: 15px;
     color: white;
     padding: 2px 5px;
     border-radius: 10px;

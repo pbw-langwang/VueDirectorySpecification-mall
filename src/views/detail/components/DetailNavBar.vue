@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="detailnavBar">
     <nav-bar>
       <div slot="left" @click="backClick">
         <img class="back" src="~assets/img/common/back.svg">
@@ -43,6 +43,9 @@
 </script>
 
 <style scoped>
+  .detailnavBar{
+    font-size: 15px;
+  }
   .active{
     color: var(--color-high-text);
   }
