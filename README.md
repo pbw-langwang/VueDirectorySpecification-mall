@@ -21,15 +21,5 @@
 swiper应该也是这样, 因为网络请求是在home.vue中写的, 但是网络请求一般在App.vue执行完mounted事件后才会请求, swiper在home之前就开始运行了, 所以根本没有元素进行滚动.
 
 ## 开发注意事项
-1. 记得删除.git文件,以免无法和自己的库连接
-2. .editorconfig文件如果不需要请删除
-3. 里面的四个css规范化,是非常友好的,而且引用顺序也是我排好的,不建议修改顺序,代码有不合适自己的可以修改并保存为自己的哟!
-4. 使用时想看到图中效果, 应该删除.getTime() , .getTime()是为了查看request请求和ProductListItem.vue还有swiper.vue的顺序关系
-
-## 注意
-a.txt文件是为了能上传到github才创建的,里面是介绍文件夹应该放什么东西
-
-老师视频:https://www.bilibili.com/video/BV15741177Eh?p=168&spm_id_from=pageDriver
-
-tabControl每次点击都会重新加载, 感觉今后视频也会解决的
+1. 使用时想看到图中效果, 应该删除.getTime() , .getTime()是为了查看request请求和ProductListItem.vue还有swiper.vue的顺序关系
 
