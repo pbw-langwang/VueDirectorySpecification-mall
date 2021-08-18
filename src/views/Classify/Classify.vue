@@ -8,6 +8,7 @@
 <script>
   import ClassifyNavBar from "views/Classify/components/ClassifyNavBar.vue"
   export default {
+    name:"Classify",
     components:{
       ClassifyNavBar
     }

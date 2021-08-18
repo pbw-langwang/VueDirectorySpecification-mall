@@ -7,6 +7,7 @@
       </div>
       <div slot="right"></div>
     </nav-bar>
+
     <p style="font-size:21px">首页</p>
     <p style="font-size:2rem">首页</p>
   </div>
@@ -14,27 +15,19 @@
 
 <script>
   import NavBar from "components/common/navbar/NavBar.vue"
-  import {getHomeMultidata} from "network/home.js"
 
   export default {
     name:"Home",
     data(){
       return{
-        banners:[],
-        recommends:[],
+        
       }
     },
     components:{
-      NavBar
+      NavBar,
     },
     created(){
-      getHomeMultidata().then(res=>{
-        console.log(res);
-        this.banners = res.data.banner.list;
-        this.recommends = res.data.recommend.list;
-      }).catch(err=>{
-        console.log(err);
-      });
+      
     }
   }
 </script>
