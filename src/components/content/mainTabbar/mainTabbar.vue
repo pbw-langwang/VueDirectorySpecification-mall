@@ -31,6 +31,7 @@
   import TabBarItem from 'components/common/tabbar/TabBarItem.vue';
 
   export default {
+    name:"mainTabBar",
     components:{
       TabBar,
       TabBarItem
