@@ -6,10 +6,10 @@
 
 <script>
   export default {
-
+    name:"Classify",
   }
 </script>
 
-<style>
+<style scoped>
 
 </style>

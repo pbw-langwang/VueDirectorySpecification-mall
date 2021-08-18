@@ -6,10 +6,10 @@
 
 <script>
   export default {
-
+    name:"Profile",
   }
 </script>
 
-<style>
+<style scoped>
 
 </style>

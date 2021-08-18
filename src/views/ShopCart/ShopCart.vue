@@ -6,10 +6,10 @@
 
 <script>
   export default {
-
+    name:"ShopCart",
   }
 </script>
 
-<style>
+<style scoped>
 
 </style>
