@@ -1,5 +1,4 @@
 /* css里面不能省略引入node_modules里面的文件 */
-/* @import "./normalize.css";这个是vue里面打包使用 */
 
 @import "./csdn.css";
 @import "./H-ui.reset.css";

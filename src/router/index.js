@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  
+  // 路由重定向以及路由懒加载
 ]
 
 const router = new VueRouter({
