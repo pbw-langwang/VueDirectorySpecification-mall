@@ -6,7 +6,7 @@
 
 /* 获取根元素，就是html */
 :root{
-  /* 定义变量 */
+  /* 定义变量:自己定义,这里只是参考 */
   --color-text:#333;  
   --color-high-text:#ff5777;
   --color-background:#fff;
@@ -52,37 +52,35 @@ li{
   zoom: 1;
 }
 
+/* 浮动 */
 .leftF{
   float: left;
 }
-
 .rightF{
   float: right;
 }
 
-.flex-row-spaceAround{
+/* 这个flex布局如果不适合, 可以直接在vue里面的style加上要修改的属性, 会替换这里 */
+.flex-R-spaceAround{
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }
-
-.flex-row-spaceBetween{
+.flex-R-spaceBetween{
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-
-.flex-column-spaceAround{
+.flex-C-spaceAround{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }
-
-.flex-column-spaceBetween{
+.flex-C-spaceBetween{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -90,6 +88,7 @@ li{
   flex-wrap: wrap;
 }
 
+/* flex比例 */
 .flex1{
   flex: 1;
 }
@@ -109,11 +108,133 @@ li{
   flex: 6;
 }
 
+/* 超出显示省略号 */
 .ellipsis1{
   overflow : hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* 代表三行后超出隐藏加省略，常用为1 */
+  -webkit-line-clamp: 1; /* 代表一行后超出隐藏加省略，常用为1 */
   -webkit-box-orient: vertical;
   word-break: break-all; /* 追加这一行代码 */
+}
+
+/* grid实现类似栅格布局 */
+.grid-pbwsg{
+  display: grid;
+  /* 平均分成12份，12份布局很常见 */
+  grid-template-columns: repeat(12,1fr);
+}
+@media only screen and (max-device-width:450px) {
+  .col-pbwsmall-1{
+    grid-column: span 1;
+  }
+  .col-pbwsmall-2{
+    grid-column: span 2;
+  }
+  .col-pbwsmall-3{
+    grid-column: span 3;
+  }
+  .col-pbwsmall-4{
+    grid-column: span 4;
+  }
+  .col-pbwsmall-5{
+    grid-column: span 5;
+  }
+  .col-pbwsmall-6{
+    grid-column: span 6;
+  }
+  .col-pbwsmall-7{
+    grid-column: span 7;
+  }
+  .col-pbwsmall-8{
+    grid-column: span 8;
+  }
+  .col-pbwsmall-9{
+    grid-column: span 9;
+  }
+  .col-pbwsmall-10{
+    grid-column: span 10;
+  }
+  .col-pbwsmall-11{
+    grid-column: span 11;
+  }
+  .col-pbwsmall-12{
+    grid-column: span 12;
+  }
+}
+@media only screen and (min-device-width:451px) and (max-device-width:1279px) {
+  .col-pbwpad-1{
+    grid-column: span 1;
+  }
+  .col-pbwpad-2{
+    grid-column: span 2;
+  }
+  .col-pbwpad-3{
+    grid-column: span 3;
+  }
+  .col-pbwpad-4{
+    grid-column: span 4;
+  }
+  .col-pbwpad-5{
+    grid-column: span 5;
+  }
+  .col-pbwpad-6{
+    grid-column: span 6;
+  }
+  .col-pbwpad-7{
+    grid-column: span 7;
+  }
+  .col-pbwpad-8{
+    grid-column: span 8;
+  }
+  .col-pbwpad-9{
+    grid-column: span 9;
+  }
+  .col-pbwpad-10{
+    grid-column: span 10;
+  }
+  .col-pbwpad-11{
+    grid-column: span 11;
+  }
+  .col-pbwpad-12{
+    grid-column: span 12;
+  }
+}
+@media only screen and (min-device-width:1280px) {
+  .col-pbwpc-1{
+    grid-column: span 1;
+  }
+  .col-pbwpc-2{
+    grid-column: span 2;
+  }
+  .col-pbwpc-3{
+    grid-column: span 3;
+  }
+  .col-pbwpc-4{
+    grid-column: span 4;
+  }
+  .col-pbwpc-5{
+    grid-column: span 5;
+  }
+  .col-pbwpc-6{
+    grid-column: span 6;
+  }
+  .col-pbwpc-7{
+    grid-column: span 7;
+  }
+  .col-pbwpc-8{
+    grid-column: span 8;
+  }
+  .col-pbwpc-9{
+    grid-column: span 9;
+  }
+  .col-pbwpc-10{
+    grid-column: span 10;
+  }
+  .col-pbwpc-11{
+    grid-column: span 11;
+  }
+  .col-pbwpc-12{
+    grid-column: span 12;
+  }
 }
