@@ -1,0 +1,30 @@
+.my-map-layerManage {
+  .container {
+    padding: 5px 10px;
+
+    .item {
+      display: flex;
+      align-items: center;
+
+      &:not(:first-child) {
+        margin-top: 5px;
+      }
+
+      .name{
+        margin: 0 5px;
+        flex:1;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .operate {
+        display: flex;
+        justify-content: left;
+        align-self: center;
+      }
+
+    }
+  }
+}

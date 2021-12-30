@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import mainTabbar from "components/content/mainTabbar/MainTabbar";
+  import mainTabbar from "components/content/mainTabbar/mainTabbar";
   import {getHomeMultidata , getHomeGoods} from "network/home.js"
 
   export default {

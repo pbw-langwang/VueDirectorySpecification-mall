@@ -1,0 +1,52 @@
+export const DRAW_TYPE = {
+  POINT: "Point",
+  LINE_STRING: "LineString",
+  LINEAR_RING: "LinearRing",
+  RECTANGLE_LINE: "Rectangle_line",
+  CIRCLE_LINE: "Circle_line",
+  ELLIPSE_LINE: "Ellipse_line",
+  FREEHAND_LINE: "Freehand_line",
+  POLYGON: "Polygon",
+  RECTANGLE: "Rectangle",
+  CIRCLE: "Circle",
+  ELLIPSE: "Ellipse",
+  FREEHAND_POLYGON: "Freehand_polygon",
+  BOX: "Box",
+  SQUARE: "Square",
+  ARROW_LINE: "Arrow_line",
+  ARC: "Arc",
+  ARC_LINE: "Arc_line",
+  CURVE: "Curve",
+  CURVE_LINE: "Curve_line",
+  SECTOR: "Sector",
+  SECTOR_LINE: "Sector_line",
+  ARROW_POLYGON: "Arrow_polygon",
+  DOUBLE_ARROW: "DoubleArrow",
+  ATTACK_ARROW: "AttackArrow"
+};
+
+export const DRAW_TYPE_NAME = {
+  Point: "点",
+  LineString: "折线",
+  Rectangle_line: "矩形线",
+  Circle_line: "圆线",
+  Ellipse_line: "椭圆线",
+  Freehand_line: "自由线",
+  Polygon: "面",
+  Rectangle: "矩形面",
+  Circle: "圆面",
+  Ellipse: "椭圆面",
+  Freehand_polygon: "自由面",
+  Arc: "弧面",
+  Arc_line: "弧线",
+  Curve: "曲面",
+  Curve_line: "曲线",
+  Sector: "扇形面",
+  Sector_line: "扇形线",
+  Arrow_line: "箭头线",
+  Arrow_polygon: "箭头面",
+  DoubleArrow: "钳击",
+  AttackArrow: "进攻方向"
+};
+
+export function getDrawType(geometryType) {}

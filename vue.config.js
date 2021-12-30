@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   configureWebpack: {
     resolve: {
@@ -9,6 +11,7 @@ module.exports = {
         // 'router':'@/router', //用$router就可以获取
         // 'store': '@/store',  //用$store就可以获取
         'views': '@/views',
+        "@map": path.resolve(__dirname, "./src/map"),
       }
     }
   }

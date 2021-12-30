@@ -1,0 +1,68 @@
+@import "./_common.less";
+
+.my-map-placement {
+  position: absolute;
+  border-radius: @border-radius;
+
+  &.is-light {
+    background: @background-color-light;
+    box-shadow: @shadow-base;
+    color: @text-color-light;
+  }
+
+  &.is-dark {
+    background: @background-color-dark;
+    box-shadow: @shadow-base;
+    color: @text-color-dark;
+  }
+
+  &.left-top {
+    left: 0;
+    top: 0;
+  }
+
+  &.center-top {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  &.right-top {
+    right: 0;
+    top: 0;
+  }
+
+  &.left-center {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.center-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &.right-center {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.left-bottom {
+    left: 0;
+    bottom: 0;
+  }
+
+  &.center-bottom {
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  &.right-bottom {
+    right: 0;
+    bottom: 0;
+  }
+}

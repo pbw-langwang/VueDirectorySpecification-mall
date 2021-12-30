@@ -1,0 +1,151 @@
+@import "./_common.less";
+
+.my-map-city {
+  top: 20px !important;
+  left: 50px !important;
+  bottom: unset !important;
+  font-size: 12px;
+
+  .min-content {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+
+
+    &.active {
+      color: @text-color-light-active;
+    }
+  }
+
+  .max-content {
+    position: absolute;
+    width: 500px;
+    background: @background-color-light;
+    box-shadow: @shadow-base;
+    color: @text-color-light;
+    margin-top: 5px;
+    padding: 5px 10px 10px 10px;
+
+    >div:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    .current {
+      line-height: 36px;
+      border-bottom: 1px solid @tab-border-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .title {
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .icon {
+        font-size: 18px;
+      }
+    }
+
+    .hot {
+      list-style: none;
+      overflow: hidden;
+      padding: 0;
+
+      li {
+        float: left;
+        margin-right: 10px;
+        color: @primary-color;
+        cursor: pointer;
+      }
+    }
+
+    .middle-content {
+      display: flex;
+      justify-content: space-between;
+      justify-items: center;
+
+      .catalog {
+        display: inline-flex;
+        border: 1px solid #cbcccd;
+        border-bottom: none;
+        border-radius: 2px;
+
+        &-item {
+          padding: 5px 20px;
+          border-bottom: 1px solid @tab-border-color;
+          cursor: pointer;
+          background-color: @tab-background-color;
+          box-sizing: border-box;
+
+          &:not(:first-child) {
+            border-left: 1px solid @tab-border-color;
+          }
+
+          &.active {
+            background-color: @tab-background-color-active;
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+
+
+    .city-list {
+      &-letter {
+        display: flex;
+        flex-wrap: wrap;
+
+        &-item {
+          display: inline-block;
+          background-color: @tab-background-color;
+          margin-left: 6px;
+          cursor: pointer;
+          line-height: 18px;
+          width: 18px;
+          text-align: center;
+        }
+      }
+
+      &-content {
+        margin-top: 10px;
+        height: 140px;
+        overflow-y: auto;
+
+        dl {
+          margin: 4px 0;
+          position: relative;
+
+          dt {
+            float: left;
+            font-weight: 700;
+            line-height: 20px;
+          }
+
+          dd {
+            white-space: normal;
+            line-height: 20px;
+            margin-bottom: 8px;
+
+            li {
+              display: inline-block;
+              margin-right: 9px;
+              cursor: pointer;
+              color: #999;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.search-suggest {
+  &-item {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
