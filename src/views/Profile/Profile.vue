@@ -2,8 +2,13 @@
   <div>
     <div class="map-container">
       <my-map ref="mapCom" style="width:1500px;height:800px"  @nullselect="clearSelectFeature">
-        <MyMapVectorJson :dataSource="dataSource" @click="handleClick"></MyMapVectorJson>
-        <MyMapPopup ref="popup">
+        <MyMapVectorJson 
+          :dataSource="dataSource"
+          @click="handleClick"
+        ></MyMapVectorJson>
+        <MyMapPopup 
+          ref="popup"
+        >
           <!-- 弹出框的具体显示内容 -->
           <div class="showPopup" v-if="info">{{ info.geometryType }}</div>
         </MyMapPopup>
