@@ -56,15 +56,15 @@ export default {
         return null;
       }
     },
-    // 控制缩小，最小0
+    // 控制地图缩小（好像只控制了部分），看popup的显示就知道了
     minZoom: {
       type: Number,
-      default: 0
+      default: 5
     },
-    // 控制放大（好像只控制了部分），最大28，看popup的显示就知道了
+    // 控制地图放大（好像只控制了部分），看popup的显示就知道了
     maxZoom: {
       type: Number,
-      default: 22
+      default: 9
     }
   },
   data() {
