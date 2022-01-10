@@ -36,9 +36,8 @@
 
   import * as mapHandler from "./js/mapHandler";
 
-  import {Feature} from "ol";
-
-  import axios from "axios";
+  // import {Feature} from "ol";
+  // import axios from "axios";
 
   export default {
     data(){
@@ -94,26 +93,26 @@
       }
     },
     created(){
-      this.initProvince();
+      // this.initProvince();
     },
     mounted(){
       this.initMap();
     },
     methods:{
       // bug:画边界无效[可能是数据模拟不对]
-      initProvince(){
-        axios.get('/json/hubei.json').then(res=>{
-          // console.log(res.data)
-          let a = res.data.map(v => {
-            v = new Feature(v)
-            return v;
-          });
-          console.log(a);
-          this.$refs.province.source.addFeatures(a);
-        }).catch(err=>{
-          console.log(err);
-        })
-      },
+      // initProvince(){
+      //   axios.get('/json/hubei.json').then(res=>{
+      //     // console.log(res.data)
+      //     let a = res.data.map(v => {
+      //       v = new Feature(v)
+      //       return v;
+      //     });
+      //     console.log(a);
+      //     this.$refs.province.source.addFeatures(a);
+      //   }).catch(err=>{
+      //     console.log(err);
+      //   })
+      // },
 
       initMap(){
         // 显示蒙层的位置
