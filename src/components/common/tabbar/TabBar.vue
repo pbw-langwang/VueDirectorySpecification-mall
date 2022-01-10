@@ -7,7 +7,14 @@
 <script>
   export default {
     name:"TabBar",
+    inject:["thisObj"],
+    // provide(){
+    //   return {
+    //     thisObj2:"bbbbbb"
+    //   }
+    // },
     created(){
+      console.log("TabBar.vue thisObj:",this.thisObj);
       console.log("TabBar.vue is created:"+new Date().getTime());
     },
     mounted(){

@@ -23,6 +23,8 @@
         default:"red"
       }
     },
+    // inject:["thisObj2","thisObj"],
+    inject:["thisObj"],
     methods:{
       tabbaritemClick(){
         if(this.$route.path !== this.path){
@@ -45,7 +47,10 @@
         return this.$route.path == this.path ? true : false;
       }
     },
+    // 生命周期，后面会覆盖前面
     created(){
+      // console.log("TabBarItem thisObj2:",this.thisObj2)
+      console.log("TabBarItem thisObj:",this.thisObj)
       console.log("TabBarItem.vue is created:"+new Date().getTime());
     },
     mounted(){

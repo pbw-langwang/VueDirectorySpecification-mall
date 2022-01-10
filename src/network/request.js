@@ -119,7 +119,8 @@ export function request(config){
 //后面接口换了的
 export function request5(config){
   const instance = axios.create({
-    baseURL:"http://152.136.185.210:7878/api/m5/",
+    // baseURL:"http://152.136.185.210:7878/api/m5/",
+    baseURL:"http://152.136.185.210:7878/api/hy66/",
     Timeout:3000,
   });
   instance.interceptors.request.use(conF=>{

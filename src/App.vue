@@ -18,6 +18,11 @@
     components:{
       mainTabbar,
     },
+    provide() {
+      return {
+        thisObj: "aaaaa"
+      }
+    },
     created(){
       console.log("App.vue is created:"+new Date().getTime());
       this.getHomeMultidata2();

@@ -36,7 +36,14 @@
       TabBar,
       TabBarItem
     },
+    // provide(){
+    //   return {
+    //     thisObj2:"bbbbbb"
+    //   }
+    // },
+    // inject:["thisObj"],
     created(){
+      // console.log("MainTabbar.vue thisObj:",this.thisObj);
       console.log("MainTabbar.vue is created:"+new Date().getTime());
     },
     mounted(){
